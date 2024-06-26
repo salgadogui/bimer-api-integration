@@ -35,7 +35,7 @@ material_requisitions = \
         JOIN Setor AS S                                      ON S.IdSetor = RM.IdSetorRequisitado
         JOIN Usuario AS US                                   ON US.IdUsuario = RM.IdUsuario
         JOIN Unidade AS U                                    ON U.IdUnidade = RMI.IdUnidade
-
+    
         WHERE S.NmSetor <> 'PRODUCAO'
 
         ORDER BY RM.DtRequisicaoMaterial DESC
