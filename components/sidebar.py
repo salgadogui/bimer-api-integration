@@ -5,7 +5,7 @@ from styles.styles import SIDEBAR_STYLE
 
 sidebar = html.Div(
     [
-        html.H2("Watt/PCP", className="display-5"),
+        html.H2("Main/PCP", className="display-5"),
         html.Hr(),
         html.P(
             "Navegue as opções abaixo para acessar as ferramentas de PCP.", className="lead"

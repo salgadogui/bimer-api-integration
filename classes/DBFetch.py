@@ -9,8 +9,13 @@ class DBFetch:
     def run(self):
         try:
             connection = self.connection()
+            if connection is None:
+                # Return mock data when no connection is available
+                print("Returning mock data - database connection not available")
+                return pd.DataFrame()  # Return empty DataFrame or mock data as needed
+
             cursor = connection.cursor()
-            cursor.execute(self.query)            
+            cursor.execute(self.query)
             fetched_data = cursor.fetchall()
             fetched_data = [tuple(row) for row in fetched_data]
             columns = [column[0] for column in cursor.description]
@@ -21,7 +26,7 @@ class DBFetch:
                 df[col] = df[col].str.strip()
 
             return df
-        
+
         finally:
             if 'connection' in locals() and connection is not None:
                 connection.close()
